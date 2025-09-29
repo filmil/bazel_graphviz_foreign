@@ -1,0 +1,105 @@
+load("@rules_cc//cc:defs.bzl", "cc_test")
+load("@rules_foreign_cc//foreign_cc:defs.bzl", "configure_make", "configure_make_variant")
+
+package(default_visibility = ["//visibility:public"])
+
+# All binaries built by the `elfutils` library.
+_BINARIES = [
+    "acyclic",
+    "bcomps",
+    "ccomps",
+    "circo",
+    "cluster",
+    "dijkstra",
+    "dot",
+    "dot2gxl",
+    "dot_sandbox",
+    "dot_static",
+    "edgepaint",
+    "fdp",
+    "gc",
+    "gml2gv",
+    "graphml2gv",
+    "gv2gml",
+    "gv2gxl",
+    "gvcolor",
+    "gvgen",
+    "gvmap",
+    "gvmap.sh",
+    "gvpack",
+    "gvpack_static",
+    "gvpr",
+    "gvpr_static",
+    "gxl2dot",
+    "gxl2gv",
+    "mm2gv",
+    "neato",
+    "nop",
+    "osage",
+    "patchwork",
+    "prune",
+    "sccmap",
+    "sfdp",
+    "tred",
+    "twopi",
+    "unflatten",
+    "vimdot",
+]
+
+
+alias(
+    name = "lib",
+    actual = ":build_target",
+)
+
+configure_make(
+    name = "build_target",
+    lib_source = "@src//:all_srcs",
+    configure_options = [
+    ],
+    env = {
+    },
+    out_binaries = _BINARIES,
+    #out_shared_libs = [
+        #"libasm-0.193.so",
+        #"libasm.so",
+        #"libasm.so.1",
+        #"libdw-0.193.so",
+        #"libdw.so",
+        #"libdw.so.1",
+        #"libelf-0.193.so",
+        #"libelf.so",
+        #"libelf.so.1",
+    #],
+    #out_static_libs = [
+        #"libasm.a",
+        #"libdw.a",
+        #"libelf.a",
+    #],
+    deps = [
+        "@zlib//:lib",
+    ],
+)
+
+
+[
+    # Generate a target for each binary, for example `//:eu-ar_bin`.
+    filegroup(
+        name = binary_name + "_bin",
+        output_group = binary_name,
+        srcs = [":elfutils"],
+    )
+    for binary_name in _BINARIES
+]
+
+
+cc_test(
+    name = "test",
+    srcs = [
+        "test.cc",
+    ],
+    deps = [
+        ":lib",
+    ],
+)
+
