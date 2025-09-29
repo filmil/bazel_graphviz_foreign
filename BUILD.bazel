@@ -126,7 +126,7 @@ configure_make(
     filegroup(
         name = binary_name + "_bin",
         output_group = binary_name,
-        srcs = [":elfutils"],
+        srcs = [":lib"],
     )
     for binary_name in _BINARIES
 ]
