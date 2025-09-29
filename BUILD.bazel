@@ -3,7 +3,6 @@ load("@rules_foreign_cc//foreign_cc:defs.bzl", "configure_make", "configure_make
 
 package(default_visibility = ["//visibility:public"])
 
-# All binaries built by the `elfutils` library.
 _BINARIES = [
     "acyclic",
     "bcomps",
@@ -56,6 +55,9 @@ configure_make(
     name = "build_target",
     lib_source = "@src//:all_srcs",
     configure_in_place = True,
+    configure_options = [
+        "--enable-static",
+    ],
     out_binaries = _BINARIES,
     out_shared_libs = [
         "libgvpr.so.2",
