@@ -126,6 +126,21 @@ configure_make(
     for binary_name in _BINARIES
 ]
 
+[
+    sh_test(
+        name = "test_sh_" + binary_name,
+        srcs = [
+            "test.sh",
+        ],
+        args = [
+            "$(location :" + binary_name + "_bin)",
+        ],
+        data = [
+            ":" + binary_name + "_bin",
+        ]
+    )
+    for binary_name in _BINARIES
+]
 filegroup(
     name = "dot_bin",
     output_group = "dot_static",
