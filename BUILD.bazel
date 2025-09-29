@@ -123,6 +123,13 @@ configure_make(
     for binary_name in _BINARIES
 ]
 
+filegroup(
+    name = "dot_bin",
+    output_group = "dot_static",
+    srcs = [":lib"],
+)
+
+
 
 cc_test(
     name = "test",
