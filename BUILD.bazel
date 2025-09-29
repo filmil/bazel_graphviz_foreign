@@ -1,8 +1,11 @@
 load("@rules_cc//cc:defs.bzl", "cc_test")
 load("@rules_foreign_cc//foreign_cc:defs.bzl", "configure_make", "configure_make_variant")
+load("@rules_shell//shell:sh_test.bzl", "sh_test")
 
 package(default_visibility = ["//visibility:public"])
 
+# A number of binaries have not been built here, due to lack of dep libraries.
+# If you need more binaries here, provide more deps.
 _BINARIES = [
     "acyclic",
     "bcomps",
@@ -29,7 +32,7 @@ _BINARIES = [
     "nop",
     "prune",
     "sccmap",
-    "sfdp",
+    #"sfdp",
     "tred",
     "unflatten",
 ]
@@ -141,3 +144,16 @@ cc_test(
     ],
 )
 
+
+sh_test(
+    name = "test_sh",
+    srcs = [
+        "test.sh",
+    ],
+    args = [
+        "$(location :dot_bin)",
+    ],
+    data = [
+        ":dot_bin",
+    ]
+)
