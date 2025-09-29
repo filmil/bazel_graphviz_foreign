@@ -3,17 +3,26 @@
 [![Publish to my Bazel registry](https://github.com/filmil/bazel_graphviz_foreign/actions/workflows/publish.yml/badge.svg)](https://github.com/filmil/bazel_graphviz_foreign/actions/workflows/publish.yml)
 [![Publish on Bazel Central Registry](https://github.com/filmil/bazel_graphviz_foreign/actions/workflows/publish-bcr.yml/badge.svg)](https://github.com/filmil/bazel_graphviz_foreign/actions/workflows/publish-bcr.yml)
 
-# `bazel`-compiled library
+# Summary
 
-This project builds the `elfutils` library and its associated binaries (like `eu-addr2line`, `eu-readelf`, etc.) in a hermetic way using Bazel. It fetches the `elfutils` source code from `sourceware.org`, and uses `rules_foreign_cc` to configure and build it. The project includes a simple test to ensure the library builds correctly, and an integration test to verify that the built artifacts can be used by another Bazel project. The CI/CD pipelines are set up with GitHub Actions to test the build, tag releases, and publish to a Bazel registry.
+This project is a [Bazel] module for [Graphviz]. It uses `rules_foreign_cc` to
+build Graphviz from source. The module downloads Graphviz version 14.0.0. The
+purpose is to provide a hermetic build of Graphviz for Bazel projects.
+
+[Bazel]: https://bazel.build/
+[Graphviz]: https://graphviz.org/
+
 
 # Bill-of-Material notices
 
-You may notice that I have a few similar projects. This is my effort to provide hermetic libraries for the upcoming Bazel modules world. Refer to [standardization notes][stdn] for details.
+You may notice that I have a few similar projects. This is my effort to provide
+hermetic libraries for the upcoming Bazel modules world. Refer to
+[standardization notes][stdn] for details.
 
 [stdn]: https://hdlfactory.com/post/2025/09/29/getting-ready-for-the-brave-new-bazel-modules-world/
 
-Other modules for the same library may be available. It is not my intention to check for duplicated effort.
+Other modules for the same library may be available. It is not my intention to
+check for duplicated effort.
 
 See [LICENSE](./LICENSE) for licensing information.
 
