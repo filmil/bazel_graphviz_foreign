@@ -7,5 +7,5 @@ cc_test(
     srcs = [
         "test.cc",
     ],
-    deps = ["@graphviz//:lib"],
+    deps = ["@graphviz//:graphviz"],
 )
