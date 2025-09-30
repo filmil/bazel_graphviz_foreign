@@ -1,5 +1,5 @@
 module(
-    name = "graphviz_foreign",
+    name = "graphviz",
     version = "0.0.0",
 )
 

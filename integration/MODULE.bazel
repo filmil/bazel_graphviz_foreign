@@ -8,8 +8,8 @@ bazel_dep(name = "rules_cc", version = "0.2.8")
 bazel_dep(name = "gcc_toolchain", version = "0.9.0")
 
 
-bazel_dep(name = "graphviz_foreign", version = "0.0.0", repo_name = "graphviz")
+bazel_dep(name = "graphviz", version = "0.0.0")
 local_path_override(
-    module_name = "graphviz_foreign",
+    module_name = "graphviz",
     path = "../",
 )
