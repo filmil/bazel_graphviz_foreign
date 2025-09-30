@@ -157,7 +157,7 @@
     "@@hermetic_cc_toolchain+//toolchain:ext.bzl%toolchains": {
       "general": {
         "bzlTransitiveDigest": "5FjJ3O1ACzyDcgFEEKQfIIjjlsMupNi0K5iLqvAI8qc=",
-        "usagesDigest": "wA2jdaboEZSTcTFdvFw7m/T7Myc0+L3E8+lcG1wpJgQ=",
+        "usagesDigest": "CYXBBydH9zZeEo2bLLB3FSF4qKESXIXC/ZTV739iUEQ=",
         "recordedFileInputs": {},
         "recordedDirentsInputs": {},
         "envVariables": {},

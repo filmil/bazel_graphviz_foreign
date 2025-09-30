@@ -9,6 +9,9 @@ This project is a [Bazel] module for [Graphviz]. It uses `rules_foreign_cc` to
 build Graphviz from source. The module downloads Graphviz version 14.0.0. The
 purpose is to provide a hermetic build of Graphviz for Bazel projects.
 
+In some contexts, compiling with `rules_foreign_cc` may be suboptimal. PRs
+welcome to fix that.
+
 [Bazel]: https://bazel.build/
 [Graphviz]: https://graphviz.org/
 
