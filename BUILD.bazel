@@ -39,6 +39,12 @@ _BINARIES = [
 
 
 alias(
+    name = "graphviz",
+    actual = ":lib",
+)
+
+
+alias(
     name = "lib",
     actual = ":build_target",
 )
