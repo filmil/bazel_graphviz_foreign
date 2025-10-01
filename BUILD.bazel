@@ -53,6 +53,9 @@ configure_make(
     name = "build_target",
     lib_source = "@src//:all_srcs",
     configure_in_place = True,
+    env = {
+        "LDFLAGS": "-lz -lstdc++",
+    },
     configure_options = [
         "--disable-go",
         "--disable-guile",
@@ -130,6 +133,9 @@ configure_make(
         "graphviz/libgvplugin_vt.a",
         "libgvc.a",
         "libgvpr.a",
+    ],
+    deps = [
+        "@zlib//:zlib",
     ],
 )
 
